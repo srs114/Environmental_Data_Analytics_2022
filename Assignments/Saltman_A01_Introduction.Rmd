@@ -30,7 +30,7 @@ The completed exercise is due on <>.
 
 3. Are there any components of the course about which you feel apprehensive?
 
-> Answer: I certainly get apprehensive when code/installs do not work how I expect. Getting stuck is a main concern
+> Answer: I certainly get apprehensive when code/installs do not work how I expect. Getting stuck is a main concern.
 
 
 ## 2) GitHub
