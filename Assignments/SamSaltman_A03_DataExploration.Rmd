@@ -80,7 +80,7 @@ class(Neonics$Conc.1..Author.) #it's a factor
 
 ```
 
-> Answer: It is not numberic because it contains both numbers and characters.
+> Answer: It is not numeric because it contains both numbers and characters.
 
 
 
@@ -122,6 +122,7 @@ ggplot((Neonics)) +
 ```{r}
 class(Litter$collectDate) #it's a factor to start. Can run this code again to see if conversion worked below as well
 Litter$collectDate <- as.Date(Litter$collectDate, format = "%Y-%m-%d") #change factor to date
+class(Litter$collectDate)
 unique(Litter$collectDate) #samples were collected on August 2nd and 30th in 2018
 
 ```
