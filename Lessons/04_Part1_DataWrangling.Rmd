@@ -63,14 +63,14 @@ vignette("dplyr")
 Filtering allows us to choose certain rows (observations) in our dataset.
 
 Here are the relevant commands used in the `filter` function. Add some notes to designate what these commands mean. 
-`==`
-`!=`
+`==`are they same
+`!=` are they different
 `<`
 `<=`
 `>`
 `>=`
-`&`
-`|`
+`&` multiple conditions usd if both are true ( is an and statement)
+`|` multiple conditions used if not all are tru (is an or statmennt)
 
 ```{r}
 class(NTL.phys.data$lakeid)
@@ -85,7 +85,7 @@ NTL.phys.data.surface3 <- filter(NTL.phys.data, depth < 0.25)
 
 # Did the methods arrive at the same result?
 head(NTL.phys.data.surface1)
-dim(NTL.phys.data.surface1)
+dim(NTL.phys.data.surface1) 
 head(NTL.phys.data.surface2)
 dim(NTL.phys.data.surface2)
 head(NTL.phys.data.surface3)
@@ -94,6 +94,7 @@ dim(NTL.phys.data.surface3)
 # Choose multiple conditions to filter
 summary(NTL.phys.data$lakename)
 NTL.phys.data.PeterPaul1 <- filter(NTL.phys.data, lakename == "Paul Lake" | lakename == "Peter Lake")
+summary(NTL.phys.data.PeterPaul1)
 NTL.phys.data.PeterPaul2 <- filter(NTL.phys.data, lakename != "Central Long Lake" & 
                                      lakename != "Crampton Lake" & lakename != "East Long Lake" &
                                      lakename != "Hummingbird Lake" & lakename != "Tuesday Lake" &
@@ -111,10 +112,10 @@ NTL.phys.data.JunethruOctober4 <- filter(NTL.phys.data, daynum %in% c(152:304))
 # filter NTL.phys.data for the year 1999
 # what code do you need to use, based on the class of the variable?
 class(NTL.phys.data$year4)
-
+datayear4 <- filter(NTL.phys.data, year4 == 1999)
 # Exercise: 
 # filter NTL.phys.data for Tuesday Lake from 1990 through 1999.
-
+yeartuesdaylake <- filter(NTL.phys.data, lakename == "Tuesday Lake" & year4 > 1990 & year4 <= 1999)
 
 ```
 Question: Why don't we filter using row numbers?

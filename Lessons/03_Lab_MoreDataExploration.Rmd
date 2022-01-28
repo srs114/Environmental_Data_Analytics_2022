@@ -93,25 +93,34 @@ Question: In the R chunk below, write "dataframe1$". Press `tab` after you type 
 Find a ten-day forecast of temperatures (Fahrenheit) for Durham, North Carolina. Create two vectors, one representing the high temperature on each of the ten days and one representing the low.
 
 ```{r}
-
+high <- c(58, 41, 42, 45, 35, 42,48 , 51, 55, 66)
+low <- c(30, 24, 19, 25, 21, 18, 22, 24, 29, 43)
 ```
 
 Now, create two additional vectors that include the ten-day forecast for the high and low temperatures in Celsius. Use a function to create the two new vectors from your existing ones in Fahrenheit.
 
 ```{r}
+lowc <- c(-1, -4, -7, -4, -6, -8, -6, -4, -2, 6)
+highc <- c(14, 5, 6, 7, 2, 6, 9, 11, 13, 19)
 
+lowcfunction <- function(x){
+  (x-32)*.556
+}
+lowcel <- lowcfunction(low)
 ```
 
 Combine your four vectors into a data frame and add informative column names.
 
 ```{r}
-
+temperature_dataframe <- data.frame(high, highc, low, lowc)
+names(temperature_dataframe) <- c("highF","HighC","LowF", "LowC"); View(temperature_dataframe) 
 ```
 
 Use the common functions `summary` and `sd` to obtain basic data summaries of the ten-day forecast. How would you call these functions differently for the entire data frame vs. a single column? Attempt to demonstrate both options below.
 
 ```{r}
-
+summary(temperature_dataframe)
+sd(temperature_dataframe$highF)
 ```
 
 ### Date objects
@@ -133,7 +142,7 @@ Remember formatting of dates in R:
 # An example is provided to get you started.
 # (code must be uncommented)
 today <- Sys.Date()
-format(today, format = "%B")
+format(today, format = "%B.%a")
 #format(today, format = "")
 #format(today, format = "")
 #format(today, format = "")
