@@ -143,7 +143,8 @@ write.csv(EPARbindFilter_Spread, row.names = FALSE, file = "../Data/Processed/EP
 Summary_EPA_Split <- EPARbindFilter_Spread %>%
   group_by(Site.Name, month, year) %>%
   summarise(MeanOzone = mean(Ozone), MeanPM2.5 = mean(PM2.5)) %>% #12a complete
-  drop_na(MeanOzone, MeanPM2.5) #12b complete
+  filter(!is.na(MeanOzone) | !is.na(MeanPM2.5)) #12b complete
+  
 
 #13
 dim(Summary_EPA_Split)
@@ -151,4 +152,4 @@ dim(Summary_EPA_Split)
 
 14. Why did we use the function `drop_na` rather than `na.omit`?
 
-> Answer: Drop_na only keeps rows that are complete with the data in specified columns. Na.Omit is generally used to omit rows based on all columns.
+> Answer: Drop_na only keeps rows that are complete with the data in specified columns. Na.Omit is generally used to omit rows based on all columns. However, I used !is.na 
