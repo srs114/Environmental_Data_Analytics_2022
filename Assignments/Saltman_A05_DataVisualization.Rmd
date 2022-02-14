@@ -1,9 +1,11 @@
 ---
-title: "Assignment 5: Data Visualization"
+title: 'Assignment 5: Data Visualization'
 author: "Sam Saltman"
-output: pdf_document
+output:
+  word_document: default
+  pdf_document: default
 geometry: margin=2.54cm
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -39,8 +41,7 @@ library(cowplot)
 Nutrients <- read.csv("./Data/Processed/NTL-LTER_Lake_Chemistry_Nutrients_PeterPaul_Processed.csv", stringsAsFactors = TRUE)
 NEON_Litter <- read.csv("./Data/Processed/NEON_NIWO_Litter_mass_trap_Processed.csv", stringsAsFactors = TRUE)
 
-#2 EPAair$Date <- as.Date(EPAair$Date, format = "%Y-%m-%d")
-PeterPaul.chem.nutrients$sampledate <- as.Date(PeterPaul.chem.nutrients$sampledate, format = "%Y-%m-%d")
+#2 
 
 NEON_Litter$collectDate <- as.Date(NEON_Litter$collectDate, formt = "%Y-%m-%d")
 Nutrients$sampledate <- as.Date(Nutrients$sampledate, formt = "%Y-%m-%d")
