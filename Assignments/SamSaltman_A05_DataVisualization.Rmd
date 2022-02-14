@@ -95,7 +95,7 @@ print(boxplot_TN)
 
 
 cowplot_legend <- get_legend(boxplot_TN)
-cowplot_temp_TP_TN <- plot_grid(boxplot_temp + theme(legend.position = "none"), boxplot_TP + theme(legend.position = "none"), boxplot_TN + theme(legend.position = "none"), nrow = 2, align = 'h', rel_heights = c(1.25, 1), cowplot_legend) 
+cowplot_temp_TP_TN <- plot_grid(boxplot_temp + theme(legend.position = "none"), boxplot_TP + theme(legend.position = "none"), boxplot_TN + theme(legend.position = "none"), nrow = 2, align = 'h', rel_heights = c(1, 1), axis = "bt", cowplot_legend) 
 print(cowplot_temp_TP_TN)
 
 ```
