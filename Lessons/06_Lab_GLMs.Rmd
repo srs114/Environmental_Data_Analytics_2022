@@ -73,7 +73,7 @@ Are Ozone levels below the threshold for "good" AQI index (0-50)?
 
 
 summary(EPAair$Ozone)
-EPAair.subsample <- sample_n(EPAair, 5000)
+EPAair.subsample <- sample_n(EPAair, 5000) #takes random sample of data
 
 # Evaluate assumption of normal distribution
 shapiro.test((EPAair.subsample$Ozone))
@@ -151,6 +151,16 @@ Create three plots, each with appropriately formatted axes and legends. Choose a
 
 ```{r}
 #Exercise 2:
+density <- ggplot(EPAair, aes(x=Ozone, fill = as.factor(Year))) +
+  geom_density(alpha=0.5) +
+  labs(title= "Density Plot:Ozone by Year", 
+       x="Ozone AQI Value",
+       y="Density",
+       fill="Year") +
+  scale_fill_manual(values=c('blue', 'yellow'))
+  
+print(density)
+
 
 
 ```
@@ -165,7 +175,9 @@ For the NTL-LTER dataset, can we predict PM2.5 from Ozone?
 
 #Exercise 3: Run a linear regression PM2.5 by Ozone. Find the p-value and R-squared value. 
 
-
+lregression <- lm(Data = EPAair, PM2.5 ~ Ozone) 
+summary(lregression)
+  
 
 #Exercise 4: Build a scatterplot. Add a line and standard error for the linear regression. 
 
