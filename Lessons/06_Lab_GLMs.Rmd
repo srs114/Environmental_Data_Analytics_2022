@@ -175,7 +175,7 @@ For the NTL-LTER dataset, can we predict PM2.5 from Ozone?
 
 #Exercise 3: Run a linear regression PM2.5 by Ozone. Find the p-value and R-squared value. 
 
-lregression <- lm(Data = EPAair, PM2.5 ~ Ozone) 
+lregression <- lm(data = EPAair, PM2.5 ~ Ozone) 
 summary(lregression)
   
 

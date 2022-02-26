@@ -234,7 +234,7 @@ wind_data_trend1 <- Kendall::SeasonalMannKendall(wind_data_ts)
 
 # Inspect results
 wind_data_trend1
-summary(wind_data_trend1)
+summary(wind_data_trend1) # reject null hypothesis when p is less than .05. there is a trend.
 
 
 wind_data_trend2 <- trend::smk.test(wind_data_ts)
