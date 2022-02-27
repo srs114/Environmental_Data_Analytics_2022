@@ -69,7 +69,7 @@ wrangled_chem_physics <- raw_chemistry_physics %>%
   filter(month == '7') %>%
   select(`lakename`, `year4`, `daynum`, `depth`, `temperature_C`) %>%
   na.omit()
-  
+dim(wrangled_chem_physics)
 
 #5
 wrangled_visualized <- ggplot(wrangled_chem_physics) +
