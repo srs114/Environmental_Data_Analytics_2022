@@ -78,7 +78,6 @@ GaringerOzone$Date <- as.Date(GaringerOzone$Date , format = "%m/%d/%Y")
 # 4
 Wrangle_GaringerOzone <- GaringerOzone %>%
   select(Date, Daily.Max.8.hour.Ozone.Concentration, DAILY_AQI_VALUE )
-Wrangle_GaringerOzone
 
 # 5
 
@@ -88,7 +87,6 @@ Days <- as.data.frame(seq(as.Date("2010-01-01"),as.Date("2019-12-31"), by = 1))
 Days <- Days %>%
   mutate(Date = seq(as.Date("2010-01-01"),as.Date("2019-12-31"), by = 1)) %>%
   select(Date)
-Days
 
 
 # 6
