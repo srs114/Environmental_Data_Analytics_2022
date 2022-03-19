@@ -136,13 +136,13 @@ Now that we've scraped the data we want into our coding environment, the next st
 ```{r create.dataframe.from.scrapings}
 #Create a dataframe of withdrawals
 df_withdrawals <- data.frame("Month" = rep(1:12),
-                             "Year" = rep(2000,12),
+                             "Year" = rep(2020,12),
                              "Avg_Withdrawals_mgd" = as.numeric(avg_withdrawals),
                              "Max_Withdrawals_mgd" = as.numeric(max_withdrawals))
 
 #Modify the dataframe to include the facility name and type as well as the date (as date object)
 df_withdrawals <- df_withdrawals %>% 
-  mutate(Registrant = !!the_registrant,
+  mutate(Registrant = !!the_registrant,  #!! shows it is a variable
          Facility_name = !!the_facility_name,
          Facility_type = !!the_facility_type,
          Date = my(paste(Month,"-",Year)))
@@ -169,9 +169,9 @@ This begins by setting the parameters of the page we'll be scraping to variables
 ```{r streamline.the.process}
 #Construct the scraping web address, i.e. its URL
 the_base_url <- 'https://www.ncwater.org/WUDC/app/WWATR/report/view'
-the_facility <- '0004-0001'
+the_facility <- '0218-0238'
 the_year <- 2015
-the_scrape_url <- paste0(the_base_url, '/', the_facility, '/', the_year)
+the_scrape_url <- paste0(the_base_url, '/', the_facility, '/', the_year) #paste0 eliminates spaces in string
 print(the_scrape_url)
 
 #Retrieve the website contents 
@@ -254,7 +254,7 @@ scrape.it <- function(the_year, the_facility){
 
 ```{r test.the.function}
 #Run the function
-the_df <- scrape.it(2018,'0004-0001')
+the_df <- scrape.it(2019,'0004-0001')
 view(the_df)
 
 ```
@@ -272,7 +272,7 @@ the_dfs <- lapply(X = the_years,
                   the_facility=my_facility)
 
 #OR, use purrr's map function
-the_dfs <- map(the_years,scrape.it,the_facility=my_facility)
+the_dfs <- map(the_years,the_facility=my_facility, scrape.it)
 
 #Conflate the returned dataframes into a single dataframe
 the_df <- bind_rows(the_dfs)
