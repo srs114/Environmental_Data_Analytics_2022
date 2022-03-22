@@ -233,7 +233,7 @@ total_retail <- the_website %>% html_nodes('td:nth-child(5)') %>% html_text()
   
 #3 Construct a dataframe from the values
 the_df <- data.frame("State" = the_states,
-"Price" = as.numeric(the_price), "Capacity" = as.numeric(gsub(",","",the_capacity)) 
+"Price" = as.numeric(the_price), "Capacity" = as.numeric(gsub(",","",the_capacity)) )
 
 ```
 
